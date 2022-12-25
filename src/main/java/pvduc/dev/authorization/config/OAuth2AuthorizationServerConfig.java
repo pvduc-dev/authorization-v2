@@ -46,25 +46,9 @@ public class OAuth2AuthorizationServerConfig {
         return http.build();
     }
 
-//    @Bean
-//    public RegisteredClientRepository registeredClientRepository(JdbcTemplate jdbcTemplate) {
-//        return new JdbcRegisteredClientRepository(jdbcTemplate);
-//    }
-
     @Bean
-    public RegisteredClientRepository registeredClientRepository() {
-        RegisteredClient r1 = RegisteredClient.withId(UUID.randomUUID().toString())
-                .clientId("client")
-                .clientSecret("secret")
-                .scope(OidcScopes.OPENID)
-                .scope(OidcScopes.PROFILE)
-                .redirectUri("https://springone.io/authorized")
-                .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
-                .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
-                .authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
-                .build();
-
-        return new InMemoryRegisteredClientRepository(r1);
+    public RegisteredClientRepository registeredClientRepository(JdbcTemplate jdbcTemplate) {
+        return new JdbcRegisteredClientRepository(jdbcTemplate);
     }
 
     @Bean
