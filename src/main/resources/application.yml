@@ -1,6 +1,8 @@
 server:
   port: 8081
 spring:
+  thymeleaf:
+    check-template-location: false
   sql:
     init:
       mode: always
@@ -9,7 +11,7 @@ spring:
       ddl-auto: none
     defer-datasource-initialization: true
     show-sql: true
-
+    open-in-view: false
   datasource:
     url: jdbc:postgresql://localhost:5432/authorization?&serverTimezone=UTC
     username: postgres
