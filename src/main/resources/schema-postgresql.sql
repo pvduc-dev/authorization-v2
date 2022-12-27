@@ -57,6 +57,7 @@ CREATE TABLE IF NOT EXISTS oauth2_user
 (
     id         uuid                 NOT NULL,
     email      varchar(150)         NOT NULL,
+    username   varchar(150)         NOT NULL,
     first_name varchar(100)         NOT NULL,
     last_name  varchar(100)         NOT NULL,
     "password" varchar(100)         NOT NULL,
@@ -65,5 +66,5 @@ CREATE TABLE IF NOT EXISTS oauth2_user
     created_by uuid                 NOT NULL,
     updated_at timestamp            NOT NULL,
     updated_by uuid                 NOT NULL,
-    username   varchar(150)         NOT NULL
+    PRIMARY KEY (id)
 );
