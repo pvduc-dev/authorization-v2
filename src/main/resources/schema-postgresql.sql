@@ -52,3 +52,18 @@ CREATE TABLE IF NOT EXISTS oauth2_authorization_consent
     authorities          varchar(1000) NOT NULL,
     PRIMARY KEY (registered_client_id, principal_name)
 );
+
+CREATE TABLE IF NOT EXISTS oauth2_user
+(
+    id         uuid                 NOT NULL,
+    email      varchar(150)         NOT NULL,
+    first_name varchar(100)         NOT NULL,
+    last_name  varchar(100)         NOT NULL,
+    "password" varchar(100)         NOT NULL,
+    is_enable  boolean default true NOT NULL,
+    created_at timestamp            NOT NULL,
+    created_by uuid                 NOT NULL,
+    updated_at timestamp            NOT NULL,
+    updated_by uuid                 NOT NULL,
+    username   varchar(150)         NOT NULL
+);
